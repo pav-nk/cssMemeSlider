@@ -1,8 +1,10 @@
 :root {
+    --color-black: #1d1716;
     --color-dark: #222831;
-    --color-light-dark: #393e46;
     --color-light: #f2f2f2;
     --color-orange: #f96d00;
+    --color-red: #dc2f2f;
+    --color-yellow: #ffc93c;
 }
 
 * {
@@ -18,7 +20,7 @@ body {
     font-size: 1.6rem;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    background: var(--color-light-dark);
+    background: var(--color-dark);
     color: var(--color-light);
     display: flex;
     justify-content: center;
@@ -40,7 +42,10 @@ h1 {
 }
 
 .carousel {
-    max-width: 50%;
+    max-width: 80%;
+    background-color: var(--color-dark);
+    padding: 2rem;
+    border-radius: 1rem;
 }
 
 .carousel__wrapper {
@@ -56,6 +61,8 @@ h1 {
 .carousel__body {
     font-size: 0;
     overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .carousel__footer {
@@ -86,7 +93,20 @@ h1 {
     height: 2rem;
     border-radius: 50%;
     background: var(--color-orange);
-    border: 2px solid var(--color-dark);
+    border: 2px solid var(--color-black);
+    transition: .4s linear;
+}
+
+.btn-control span.active-control {
+    background: var(--color-red);
+}
+
+.btn-control:hover > span {
+    background: var(--color-light);
+}
+
+.btn-control:active > span {
+    background: var(--color-yellow);
 }
 
 .toFadeOut {
@@ -116,5 +136,41 @@ h1 {
 
     100% {
         opacity: 1
+    }
+}
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .carousel {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .carousel {
+        max-width: 98%;
+    }
+
+    .carousel__footer {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .controls {
+        align-self: center;
+    }
+}
+
+@media (max-width: 380px) {
+    h1 {
+        font-size: 1.6rem;
     }
 }

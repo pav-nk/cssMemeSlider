@@ -21,7 +21,7 @@ const data = {
     4: {
         src: './images/img4.jpg',
         alt: 'img 4',
-        text: 'It\'s too late. I\'m already part of the ship :)',
+        text: 'It\'s too late. :)',
     }
 }
 
@@ -33,9 +33,11 @@ controls.forEach((buttton) => {
     buttton.addEventListener('click', (event) => {
         const { currentTarget } = event;
         const currentId = currentTarget.dataset.control;
-        state.currentId = currentId;
+        currentTarget.querySelector('span').classList.add('active-control');
+        document.querySelector(`.btn-control[data-control='${state.currentId}'] span`).classList.remove('active-control');
         currentImage.classList.add('toFadeOut');
         description.classList.add('toFadeOut');
+        state.currentId = currentId;
     });
 });
 
@@ -59,4 +61,5 @@ currentImage.addEventListener('animationend', (event) => {
 
 currentImage.setAttribute('src', data[1].src);
 currentImage.setAttribute('alt', data[1].alt);
+document.querySelector('.btn-control span').classList.add('active-control');
 description.textContent = data[1].text;

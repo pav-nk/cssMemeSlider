@@ -28,23 +28,17 @@ body {
     height: 100vh;
 }
 
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 h1 {
     font-size: 4rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5em;
+    text-align: center;
 }
 
 .carousel {
-    max-width: 80%;
+    min-width: 60%;
     background-color: var(--color-dark);
-    padding: 2rem;
     border-radius: 1rem;
 }
 
@@ -59,21 +53,21 @@ h1 {
 }
 
 .carousel__body {
+    display: grid;
+    grid-template-rows: 1fr 3rem;
+    grid-template-columns: 40rem 1fr 4rem 4rem 4rem 4rem;
+    grid-row-gap: 3rem;
+    grid-template-areas: "img img img img img img" "desc . control1 control2 control3 control4";
+}
+
+.carousel__image {
+    grid-area: img;
     font-size: 0;
-    overflow: hidden;
     border-radius: 0.5rem;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.carousel__footer {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-}
-
-.controls {
-    display: flex;
-    gap: 1rem;
+    width: 100%;
+    padding-top: 58%;
+    transition: all 1s linear;
+    background: url('../images/img1.jpg') no-repeat center / cover;
 }
 
 .btn-control {
@@ -85,6 +79,7 @@ h1 {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: all 0.5s linear;
 }
 
 .btn-control span {
@@ -97,46 +92,74 @@ h1 {
     transition: .4s linear;
 }
 
-.btn-control span.active-control {
-    background: var(--color-red);
-}
-
 .btn-control:hover > span {
-    background: var(--color-light);
+    background: var(--color-red);
 }
 
 .btn-control:active > span {
     background: var(--color-yellow);
 }
 
-.toFadeOut {
-    animation: fadeOut 0.5s linear;
+#btn-control-1 {
+    grid-area: control1;
 }
 
-.toFadeIn {
-    animation: fadeIn 0.7s linear;
+#btn-control-2 {
+    grid-area: control2;
 }
 
-@keyframes fadeOut {
-    0% {
-        opacity: 1
-    }
-
-    100% {
-        opacity: 0
-    }
+#btn-control-3 {
+    grid-area: control3;
 }
 
-@keyframes fadeIn {
+#btn-control-4 {
+    grid-area: control4;
+}
 
-    0%,
-    50% {
-        opacity: 0
-    }
+#btn-control-1:focus ~ .carousel__image {
+    background: url('../images/img1.jpg') no-repeat center / cover;
+}
 
-    100% {
-        opacity: 1
-    }
+#btn-control-2:focus ~ .carousel__image {
+    background: url('../images/img2.jpg') no-repeat center / cover;
+}
+
+#btn-control-3:focus ~ .carousel__image {
+    background: url('../images/img3.jpg') no-repeat center / cover;
+}
+
+#btn-control-4:focus ~ .carousel__image {
+    background: url('../images/img4.jpg') no-repeat center / cover;
+}
+
+.btn-control:focus > span {
+    background: var(--color-light);
+}
+
+.description {
+    grid-area: desc;
+    line-height: 40px;
+}
+
+.description span {
+    display: none;
+    transition: all 0.5s linear;
+}
+
+#btn-control-1:focus ~ .description > #text-1 {
+    display: block;
+}
+
+#btn-control-2:focus ~ .description > #text-2 {
+    display: block;
+}
+
+#btn-control-3:focus ~ .description > #text-3 {
+    display: block;
+}
+
+#btn-control-4:focus ~ .description > #text-4 {
+    display: block;
 }
 
 @media (max-width: 1024px) {
@@ -155,17 +178,7 @@ h1 {
     }
 
     .carousel {
-        max-width: 98%;
-    }
-
-    .carousel__footer {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-        gap: 2rem;
-    }
-
-    .controls {
-        align-self: center;
+        max-width: 95%;
     }
 }
 

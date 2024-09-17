@@ -11,20 +11,27 @@
     <div class="carousel">
         <div class="carousel__wrapper">
             <div class="carousel__header">
-                <h1>CSSMemeSlider</h1>
+                <h1>CSSMemSlider</h1>
             </div>
             <div class="carousel__body">
-                <button class="btn-control" id="btn-control-1" data-control="1" autofocus><span></span></button>
-                <button class="btn-control" id="btn-control-2" data-control="2"><span></span></button>
-                <button class="btn-control" id="btn-control-3" data-control="3"><span></span></button>
-                <button class="btn-control" id="btn-control-4" data-control="4"><span></span></button>
-                <div class="carousel__image"></div>
-                <p class="description">
-                    <span id="text-1">You said you work at Google!</span>
-                    <span id="text-2">HTML, CSS, JS</span>
-                    <span id="text-3">Stackoverflow - Developer</span>
-                    <span id="text-4">It's too late.</span>
-                </p>
+                <input class="btn-control" type="radio" name="radio" id="btn-control-1" checked>
+                <input class="btn-control" type="radio" name="radio" id="btn-control-2">
+                <input class="btn-control" type="radio" name="radio" id="btn-control-3">
+                <input class="btn-control" type="radio" name="radio" id="btn-control-4">
+                <div class="carousel__image">
+                    <img src="./images/img1.jpg" alt="img 1" id="img1">
+                    <img src="./images/img2.jpg" alt="img 2" id="img2">
+                    <img src="./images/img3.jpg" alt="img 3" id="img3">
+                    <img src="./images/img4.jpg" alt="img 4" id="img4">
+                </div>
+                <div class="description">
+                    <p class="description__content">
+                        <span id="text-1">You said you work at Google!</span>
+                        <span id="text-2">HTML, CSS, JS</span>
+                        <span id="text-3">Stackoverflow - Developer</span>
+                        <span id="text-4">It's too late.</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

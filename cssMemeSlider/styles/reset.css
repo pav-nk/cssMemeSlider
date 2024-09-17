@@ -97,7 +97,7 @@ textarea,
 select {
     line-height: 1;
     outline: none;
-    appearance: none;
+    appearance: auto;
 }
 
 article,
